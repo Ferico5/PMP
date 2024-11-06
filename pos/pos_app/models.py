@@ -1,10 +1,14 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser #AI code
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-class User (AbstractUser): #AI code
-    pass #AI code
+class User (AbstractUser):
+    is_waitress = models.BooleanField(default = False)
+    is_cashier = models.BooleanField(default = False)
+    is_kitchen = models.BooleanField(default = False)
 
+    def __str__(self) :
+        return str(self.username) + ' ' + str(self.first_name) + ' ' + str(self.last_name)
 
 
 class TableResto(models.Model):
